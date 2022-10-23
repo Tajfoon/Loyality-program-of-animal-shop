@@ -18,17 +18,27 @@ main{
 
 .grid-container {
   display: grid;
+  width: 70%;
   margin-top: 200px;
-  grid-template-columns: 500px 800px;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 150px 250px 200px 70px ;
 }
 
 .grid-item-header {
     grid-column: 1 / -1;
     background-color: yellow;
+    background-color: purple;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    font-size: 25px;
 }
 
 .grid-item-sidebar {
+    display: flex;
+    flex-direction: column;
+    
     grid-row: 2 / 4;
     background-color:orange
 }
@@ -47,6 +57,9 @@ main{
     background-color:beige
 }
 
-.grid-items::before {
-  content: "GRID BLOCK";
+.bought-history-row
+{
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    justify-content: space-between;
 }
