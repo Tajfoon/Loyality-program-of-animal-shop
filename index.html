@@ -6,34 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Oswald:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <h1>Pet Store🐕‍🦺</h1>
+        <form>
+        <input type="text" placeholder="Nazwa użytkownika" class="type-login margin-item type-padding">
+        <input type="text" placeholder="Hasło" class="type-password margin-item type-padding">
+        <button class="login-button type-padding"> Zaloguj  </button>
+        </form>
+    </header>
     <main>
     <div class="grid-container">
         <div class="grid-items grid-item-header">
-            <p> <b>Witaj:</b> customer name </p>
+            <p> <b>Witaj:</b> customer name 🐶 </p>
             <p> <b>Punkty lojalnościowe:</b> 300pkt </p>
         </div>
         <div class="grid-items grid-item-sidebar">
             <div class="bought-history-row">
-                <p class="bought__date"> 20/04/2022 </p>
+                <p class="bought__date"> ZAKUP - 20/04/2022 </p>
                 <p class="bought__product"> Wild-Animal Care </p>
                 <p class="bought__points"> 25 points </p>
             </div>
             <div class="bought-history-row">
-                <p class="bought__date"> 13/01/2022 </p>
-                <p class="bought__product"> Super Junior vital </p>
+                <p class="bought__date"> PRZELEW 13/01/2022 </p>
+                <p class="bought__product"> Na schronisko "Daj mi szansę" </p>
                 <p class="bought__points"> 25 points </p>
             </div>
         </div>
         
       
         <div class="grid-items grid-item-send">
-                <p>Wesprzyj schronisko przesyłając swoje punkty lojalnościowe</p>
+                <p class="margin-item">Wesprzyj za pomocą swoich punktów jedno z schronisk biorących udział w naszej akcji "Na ratunek zwierzętom". 
+                    Każde przekazane 100 punktów to 1kg przekazany do placówki schroniska.
+                </p>
                 
                 <div class="donate-send-inputs">
-                    <input type="text" size="10" placeholder="liczba punktów"></input>
-                    <button class="transfer__points_btn margin-item">Przelej</button>
+                    <input type="text" class="type-padding" size="10"  placeholder="liczba punktów"></input>
+                    <button class="transfer__points_btn margin-item type-padding">Przelej</button>
                 </div>
         </div>
         <div class="fundation__donate_photos center-items">
@@ -45,17 +58,17 @@
                 <div class="shetler_choose_row">
                   <input type="radio" class="shetler" id="przystan" name="shetler" value="shetler"
                          checked>
-                  <label for="przystan">Schronisko bezpieczna przystań</label>
+                  <label for="przystan">Zwierzęca przystań</label>
                   </div>
                   <div class="shetler_choose_row">
                   <input type="radio" class="shetler" id="dajszanse" name="shetler" value="shetler"
                          checked>
-                  <label for="dajszanse">Schronisko daj mu szansę</label>
+                  <label for="dajszanse">Daj mi szansę</label>
                   </div>
                   <div class="shetler_choose_row">
                   <input type="radio" class="shetler" id="dabrowskie" name="shetler" value="shetler"
                          checked>
-                  <label for="dabrowskie">Schronisko dąbrowskie</label>
+                  <label for="dabrowskie">Dąbrowskiego 53</label>
                   </div>
                   <div class="shetler_choose_row">
                   <input type="radio" class="shetler" id="reksio" name="shetler" value="shetler"
