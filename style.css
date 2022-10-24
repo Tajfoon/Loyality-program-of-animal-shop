@@ -70,7 +70,7 @@ main {
   grid-template-columns: 5fr 3fr 3fr;
   grid-template-rows: 150px 260px 250px 70px;
   grid-gap: 15px;
-  opacity: 0;
+  opacity: 1;
 }
 
 .welcome
@@ -87,6 +87,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   font-size: 1.1em;
+  display: none;
 }
 .medal
 {
@@ -133,7 +134,8 @@ img
 
 .grid-item-send {
   background-color: black;
-  font-size: 10px;
+  padding: 7px;
+  font-size: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -153,9 +155,8 @@ img
   transition: 2s ease;
   opacity: 1;
 }
-
 .hidden{
-  opacity: 0;
+  display: none;
 }
 
 

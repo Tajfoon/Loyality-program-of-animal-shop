@@ -4,7 +4,7 @@ const password = document.querySelector(".type-password");
 // ALL-BUTTONS //
 
 const loginBtn = document.querySelector(".login-button");
-const transferPoints = document.querySelector(".transfer__points_btn");
+const transferPointsBtn = document.querySelector(".transfer__points_btn");
 const changeModeBtn = document.querySelector(".reward__charitbale_btn");
 
 //SECTIONS
@@ -14,7 +14,8 @@ const exchangeHistory = document.querySelector(".grid-item-sidebar");
 const chooseSection = document.querySelector(".grid-item-choose");
 const footerSection = document.querySelector(".grid-item-footer");
 const inputPoints = document.querySelector(".input__points_text");
-const accStatus = document.querySelector(".acc-status")
+const accStatus = document.querySelector(".acc-status");
+const howManySpend = document.querySelector('.howManySpend');
 // ShetlerChoose
 const shetlerChoose = document.querySelectorAll(".shetler");
 const dogPhotos = document.querySelector(".fundation__donate_photos");
@@ -28,6 +29,7 @@ const welcome = document.querySelector('.welcome');
 const account1 = {
   name: "Erica Johnsons",
   points: [50, 100, 25, 105, 15, 35],
+  charityPoints: [37, 23, 15, 100, 20],
   status: "",
   login: "erica",
   password: "erica123",
@@ -36,6 +38,7 @@ const account1 = {
 const account2 = {
   name: "Mark Sullivan",
   points: [50, 100, 250, 10, 15, 35],
+  charityPoints: [37, 23, 15, 100, 20],
   status: "",
   login: "mark",
   password: "mark123",
@@ -44,6 +47,7 @@ const account2 = {
 const account3 = {
   name: "Olivier Kowalski",
   points: [50, 100, 300, 10, 15, 35],
+  charityPoints: [37, 23, 15, 100, 20],
   status: "",
   login: "olivier",
   password: "olivier123",
@@ -60,21 +64,21 @@ loginBtn.addEventListener("click", function (event) {
   if (currentUser.password === password.value) {
     const pointsSum = function (acc) {
       // Get sum of points, and check status of current user.
-
       const points = acc.points.reduce((acm, points) => acm + points, 0);
+      const charityPoints = acc.charityPoints.reduce((acm, points) => acm + points, 0);
       console.log(points);
       console.log(acc.status);
-      if (points > 500) {
-        acc.status = "Status GOLD";
-      } else if (points > 300) {
-        acc.status = "Status SILVER";
-      } else if (points > 150) {
-        acc.status = "Status BRONZE";
+      if (charityPoints > 500) {
+        acc.status = "Status konta GOLD 🏅";
+      } else if (charityPoints > 300) {
+        acc.status = "Status konta SILVER 🥈";
+      } else if (charityPoints > 150) {
+        acc.status = "Status konta BRONZE 🥉";
       }
       acc.sumPoints = points;
+      acc.sumCharity = charityPoints;
     };
     // Display userName
-
     const getName = function (acc) {
       const userName = acc.name.split(" ")[0];
       acc.userName = userName;
@@ -82,11 +86,35 @@ loginBtn.addEventListener("click", function (event) {
     };
     getName(currentUser);
     pointsSum(currentUser);
+    transferPointsBtn.addEventListener('click',function()
+  {
+  const points = inputPoints.value;
+  const correctPoints = currentUser.sumPoints - points;
+  const correctCharity = Number(currentUser.sumCharity) + Number(points);
+  console.log(`SUMA PUNKTÓW CHAR: ${correctCharity}`)
+    currentUser.sumPoints = correctPoints;
+    currentUser.sumCharity = correctCharity;
+    if (currentUser.sumCharity > 500) {
+      currentUser.status = "Status konta GOLD 🏅";
+    } else if (currentUser.sumCharity > 300) {
+      currentUser.status = "Status konta SILVER 🥈";
+    } else if (currentUser.sumCharity > 150) {
+      currentUser.status = "Status konta BRONZE 🥉";
+    }
+    currentPoints.innerHTML = `Twoje punkty: ${currentUser.sumPoints}`;
+    howManySpend.innerHTML = `Suma przelanych punktów: ${currentUser.sumCharity}`;
+    accStatus.innerHTML = currentUser.status;
+    console.log(`${currentUser.choosenShetler ? `Przelałeś punkty na ${currentUser.choosenShetler}` : `Wybierz schronisko!`}`);
+  });
+
     greetings.innerHTML = `Witaj: ${currentUser.userName}🐶`;
     currentPoints.innerHTML = `Twoje punkty: ${currentUser.sumPoints}`;
     accStatus.innerHTML = currentUser.status;
+    howManySpend.innerHTML = `Suma przelanych punktów: ${currentUser.sumCharity}`;
     container.classList.toggle('active');
     welcome.classList.toggle('hidden');
+
+    
   }
 });
 
@@ -114,12 +142,12 @@ loginBtn.addEventListener("click", function (event) {
 // pointsSum(account1);
 // console.log(account1)
 
-
 shetlerChoose.forEach(function(shetler, i){
-  shetler.addEventListener('click', function()
+  shetler.addEventListener('click', function(e)
   {
     const currentImg = shetler.value;
     console.log(currentImg);
     shetlerImg.src=`img/${currentImg}.jpg`
+    currentUser.choosenShetler = shetler.value;
   })
 });
