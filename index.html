@@ -19,11 +19,27 @@
         <button class="login-button type-padding"> Zaloguj  </button>
         </form>
     </header>
-    <main>
+    <main class="container">
+        <div class="welcome">
+        <p>Witaj w naszym programie lojalnościowym! Naszą misją jest
+            wraz z tobą czynić dobro i sprawić by żaden psiak nie więcej głodny.
+            Kupując u nas produkty, gromadzisz punkty i to ty wybierasz placówkę,
+            której pomożesz. Przelewając określoną liczbę punktów zyskujesz
+            odznaczenia konta:
+        </p>
+        <p ></p>
+        <p class="medal">🥉 - 5% rabatu</p>
+        <p class="medal">🥈 - 10% rabatu</p>
+        <p class="medal">🥇 - 15% rabatu</p>
+
+        <h2>Czyń z nami dobro już dziś!</h2>
+        </div>
     <div class="grid-container">
+        
         <div class="grid-items grid-item-header">
-            <p>Witaj: Customer name 🐶 </p>
-            <p>Punkty lojalnościowe: 300pkt </p>
+            <p class="greetings">Witaj: Customer name 🐶 </p>
+            <p class="acc-status">Status</p>
+            <p class="current-points">Punkty lojalnościowe: 300pkt </p>
             <button class="reward__charitbale_btn button-style">Katalog nagród 🎁</button>
         </div>
         <div class="grid-items grid-item-sidebar">
@@ -51,34 +67,32 @@
                     <button class="transfer__points_btn button-style">Przelej</button>
                 </div>
         </div>
-        <div class="fundation__donate_photos center-items">
-            DOG PHOTOS
+        <div class="fundation__donate_photos">
+            <img id="shetlerimg" src="img/reksio.jpg" alt="">
         </div>
         <div class="grid-items grid-item-choose">
-            <fieldset class="fieldset-shetler">
-                <legend class="whitch_one">Wybierz schronisko które wesprzesz:</legend>
-                
+            <h3>Wybierz schronisko które wesprzesz:</h3>
                     <div class="shetler_choose_row">
-                      <input type="radio" class="shetler" name="shetler" value="przystan"
+                      <input type="radio" name="shetler" class="shetler" id="przystan" value="przystan"
                              checked>
                       <label for="przystan">Zwierzęca przystań</label>
                       </div>
                       <div class="shetler_choose_row">
-                      <input type="radio" class="shetler" name="shetler" value="szansa"
-                             checked>
+                      <input type="radio" name="shetler" class="shetler" id="dajszanse" value="szansa" checked>
                       <label for="dajszanse">Daj mi szansę</label>
                       </div>
                       <div class="shetler_choose_row">
-                      <input type="radio" class="shetler" name="shetler" value="dabrowskiego"
+                      <input type="radio" name="shetler" class="shetler" id="dabrowskie" value="dabrowskiego"
                              checked>
                       <label for="dabrowskie">Dąbrowskiego 53</label>
                       </div>
                       <div class="shetler_choose_row">
-                      <input type="radio" class="shetler" name="shetler" value="reksio"
+                      <input type="radio" name="shetler" class="shetler" id="reksio" value="reksio"
                              checked>
                       <label for="reksio">Schronisko reksio</label>
                       </div>
-                  </fieldset>
+                      <p>Jeśli chciałbyś zgłosić którąś z placówek do naszej akcji. </p>
+                      <p>Kontakt: petshop@gmail.com</p>
         </div>
         <div class="grid-item-footer flex-center">
             <h2> Pet store - loyality program: tajfoon</h2>
