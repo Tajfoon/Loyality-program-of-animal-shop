@@ -22,8 +22,9 @@
     <main>
     <div class="grid-container">
         <div class="grid-items grid-item-header">
-            <p> <b>Witaj:</b> customer name 🐶 </p>
-            <p> <b>Punkty lojalnościowe:</b> 300pkt </p>
+            <p>Witaj: Customer name 🐶 </p>
+            <p>Punkty lojalnościowe: 300pkt </p>
+            <button class="reward__charitbale_btn button-style">Katalog nagród 🎁</button>
         </div>
         <div class="grid-items grid-item-sidebar">
             <div class="bought-history-row">
@@ -41,40 +42,42 @@
       
         <div class="grid-items grid-item-send">
                 <p class="margin-item">Wesprzyj za pomocą swoich punktów jedno z schronisk biorących udział w naszej akcji "Na ratunek zwierzętom". 
-                    Każde przekazane 100 punktów to 1kg przekazany do placówki schroniska.
+                    Każde przelane 100 punktów, to 1kg karmy przekazany do placówki schroniska w twoim imieniu.
                 </p>
+                <p><b>Dziękujemy</b></p>
                 
                 <div class="donate-send-inputs">
-                    <input type="text" class="type-padding" size="10"  placeholder="liczba punktów"></input>
-                    <button class="transfer__points_btn margin-item type-padding">Przelej</button>
+                    <input type="text" class="input__points_text type-padding" size="10"  placeholder="liczba punktów"></input>
+                    <button class="transfer__points_btn button-style">Przelej</button>
                 </div>
         </div>
         <div class="fundation__donate_photos center-items">
             DOG PHOTOS
         </div>
         <div class="grid-items grid-item-choose">
-            <fieldset>
+            <fieldset class="fieldset-shetler">
                 <legend class="whitch_one">Wybierz schronisko które wesprzesz:</legend>
-                <div class="shetler_choose_row">
-                  <input type="radio" class="shetler" id="przystan" name="shetler" value="shetler"
-                         checked>
-                  <label for="przystan">Zwierzęca przystań</label>
-                  </div>
-                  <div class="shetler_choose_row">
-                  <input type="radio" class="shetler" id="dajszanse" name="shetler" value="shetler"
-                         checked>
-                  <label for="dajszanse">Daj mi szansę</label>
-                  </div>
-                  <div class="shetler_choose_row">
-                  <input type="radio" class="shetler" id="dabrowskie" name="shetler" value="shetler"
-                         checked>
-                  <label for="dabrowskie">Dąbrowskiego 53</label>
-                  </div>
-                  <div class="shetler_choose_row">
-                  <input type="radio" class="shetler" id="reksio" name="shetler" value="shetler"
-                         checked>
-                  <label for="reksio">Schronisko reksio</label>
-                  </div>
+                
+                    <div class="shetler_choose_row">
+                      <input type="radio" class="shetler" name="shetler" value="przystan"
+                             checked>
+                      <label for="przystan">Zwierzęca przystań</label>
+                      </div>
+                      <div class="shetler_choose_row">
+                      <input type="radio" class="shetler" name="shetler" value="szansa"
+                             checked>
+                      <label for="dajszanse">Daj mi szansę</label>
+                      </div>
+                      <div class="shetler_choose_row">
+                      <input type="radio" class="shetler" name="shetler" value="dabrowskiego"
+                             checked>
+                      <label for="dabrowskie">Dąbrowskiego 53</label>
+                      </div>
+                      <div class="shetler_choose_row">
+                      <input type="radio" class="shetler" name="shetler" value="reksio"
+                             checked>
+                      <label for="reksio">Schronisko reksio</label>
+                      </div>
                   </fieldset>
         </div>
         <div class="grid-item-footer flex-center">
@@ -87,4 +90,5 @@
     </div>
     </main>
 </body>
+<script src="script.js"></script>
 </html>

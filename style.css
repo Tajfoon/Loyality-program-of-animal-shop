@@ -15,8 +15,10 @@ header
     display: flex;
     justify-content: space-around;
     padding-top: 5px;
-    font-size:35px
+    font-size:15px
 }
+
+/* ------------- All buttons -----------------*/
 
 .login-button
 {
@@ -36,6 +38,28 @@ header
     background-color: #F8D800;
     transition: 2s ease;
     }
+
+.reward__charitbale_btn
+{
+    position: absolute;
+    background-color: #ff5858;
+    right: 0px;
+    bottom: 0px;
+    
+}
+.send-btn
+{
+    background-color: red;
+}
+.transfer__points_btn
+{
+    font-weight: 600;
+    background-color: ;
+}
+
+/* ------------------------------------- */
+
+
 main{
     position: absolute;
     width: 100%;
@@ -45,7 +69,6 @@ main{
     align-items: flex-start;
     color: white;
     text-shadow: 2px 4px 13px rgba(66, 68, 90, 1);
-
 }
 
 .grid-container {
@@ -58,13 +81,14 @@ main{
 }
 
 .grid-item-header {
-    background-image: linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%);
+    position: relative;
+    background-color: sienna;
     color: white;
     grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
     padding: 40px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .grid-item-sidebar {
@@ -93,6 +117,7 @@ main{
 
 .grid-item-send {
     background-color: black;
+    font-size: 10px;
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -117,7 +142,7 @@ main{
 .grid-item-choose
 {
     padding: 10px;
-    font-size: 25px;
+    font-size: 1em;
     overflow-y: scroll;
 }
 
@@ -129,6 +154,11 @@ main{
 fieldset
 {
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 
 .center-items
@@ -145,6 +175,13 @@ fieldset
 }
 .type-padding
 {   
+    
+    padding: 10px;
+}
+.button-style
+{
+    font-weight: 600;
+    margin: 5px;
     padding: 10px;
 }
 
