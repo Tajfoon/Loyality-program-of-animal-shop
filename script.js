@@ -28,8 +28,10 @@ const welcome = document.querySelector(".welcome");
 
 const account1 = {
   name: "Erica Johnsons",
-  points: [50, 100, 25, 105, 15, 35],
-  charityPoints: [37, 23, 15, 100, 20],
+  points: [50, 100, 25, 50, 23, 56, 50, 100 ],
+  product: ['Wild-animal CARE 5kg', 'Kaganiec size. "M"', 'Przysmaki jagnięcina', 'Saszetka BEEF', 'Wild-Animal CARE 2.5kg',
+  'Wild-animal CARE 5kg', 'Kaganiec size. "M"', 'Przysmaki jagnięcina'],
+  charityPoints: [37, 23, 15, 100, 20, 23],
   status: "",
   login: "erica",
   password: "erica123",
@@ -109,7 +111,6 @@ loginBtn.addEventListener("click", function (event) {
       const points = inputPoints.value;
       const correctPoints = currentUser.sumPoints - points;
       const correctCharity = Number(currentUser.sumCharity) + Number(points);
-      console.log(`SUMA PUNKTÓW CHAR: ${correctCharity}`);
 
       //*     Transfering points is possible ???
 
@@ -121,14 +122,16 @@ loginBtn.addEventListener("click", function (event) {
       //*     Change status of account
       if (currentUser.sumCharity > 500) {
         currentUser.status = "Status konta GOLD 🏅";
+        header.style = "background-color: gold;"
       } else if (currentUser.sumCharity > 300) {
         currentUser.status = "Status konta SILVER 🥈";
+        header.style = "background-color: silver;"
       } else if (currentUser.sumCharity > 150) {
         currentUser.status = "Status konta BRONZE 🥉";
       }
       //*    Display points
-      currentPoints.innerHTML = `Twoje punkty: ${currentUser.sumPoints}`;
-      howManySpend.innerHTML = `Suma przelanych punktów: ${currentUser.sumCharity}`;
+      currentPoints.innerHTML = `<p>Przekazałeś już: ${currentUser.sumCharity} = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
+      howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
       accStatus.innerHTML = currentUser.status;
       console.log(
         `${
@@ -138,15 +141,27 @@ loginBtn.addEventListener("click", function (event) {
         }`
       );
     });
+    
+    const displayHistory = function(acc){
+      acc.points.forEach(function(val, i){
+        const addExchange = `
+    <div class="bought-history-row">
+    <p class="bought__date"> ${i +1} </p>
+    <p class="bought__product"> ${acc.product[i]} </p>
+    <p class="bought__points"> ${val} points </p>
+    </div>`;
+    exchangeHistory.insertAdjacentHTML('beforeend', addExchange);
+      })
+    
+    }
+    displayHistory(currentUser);
 
     greetings.innerHTML = `Witaj: ${currentUser.userName}🐶`;
-    currentPoints.innerHTML = `Twoje punkty: ${currentUser.sumPoints}`;
+    currentPoints.innerHTML = `<p>Przekazałeś już: ${currentUser.sumCharity} = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
     accStatus.innerHTML = currentUser.status;
-    howManySpend.innerHTML = `Suma przelanych punktów: ${currentUser.sumCharity}`;
+    howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
     container.classList.toggle("active");
     welcome.classList.toggle("hidden");
   }
 });
-
-
-
+//** Display history
