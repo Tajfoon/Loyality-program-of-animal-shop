@@ -11,14 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Oswald:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="loginWindow">
         <h1>Pet Store🐕‍🦺</h1>
         <form>
-        <input type="text" placeholder="Nazwa użytkownika" class="type-login margin-item type-padding">
-        <input type="text" placeholder="Hasło" class="type-password margin-item type-padding">
+        <div class="login-inputs">
+            <input type="text" placeholder="Nazwa użytkownika" class="type-login margin-item type-padding login-inputs">
+            <input type="text" placeholder="Hasło" class="type-password margin-item type-padding login-inputs">
+        </div>
         <button class="login-button type-padding"> Zaloguj  </button>
         </form>
     </header>
+
     <main class="container">
         <div class="welcome">
         <p>Witaj w naszym programie lojalnościowym! Naszą misją jest
@@ -28,9 +31,9 @@
             odznaczenia konta:
         </p>
         <p ></p>
-        <p class="medal">🥉 - 5% rabatu</p>
-        <p class="medal">🥈 - 10% rabatu</p>
-        <p class="medal">🥇 - 15% rabatu</p>
+        <p class="medal">🥉 = 5% rabatu</p>
+        <p class="medal">🥈 = 10% rabatu</p>
+        <p class="medal">🥇 = 15% rabatu</p>
 
         <h2>Czyń z nami dobro już dziś!</h2>
         </div>
@@ -91,6 +94,8 @@
                       <p>Jeśli chciałbyś zgłosić którąś z placówek do naszej akcji. </p>
                       <p>Kontakt: petshop@gmail.com</p>
         </div>
+
+        
         <div class="grid-item-footer flex-center">
             <h2> Pet store - loyality program: tajfoon</h2>
     

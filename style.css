@@ -7,6 +7,7 @@
 body {
   font-family: "Forum", cursive;
   font-family: "Oswald", sans-serif;
+  font-size: 12px;
 }
 header {
   display: flex;
@@ -63,9 +64,9 @@ main {
 }
 
 .grid-container {
+  margin: 2%;
   display: grid;
   width: 70%;
-  margin-top: 70px;
   grid-template-columns: 5fr 3fr 3fr;
   grid-template-rows: 150px 260px 250px 70px;
   grid-gap: 15px;
@@ -192,6 +193,9 @@ fieldset {
   justify-content: center;
   padding: 20px;
 }
+.login-inputs{
+  color: red;
+}
 
 .margin-item {
   margin: 5px;
@@ -212,13 +216,83 @@ fieldset {
   text-align: center;
 }
 
-.grid-items:active {
-  background-color: grey !important;
-  opacity: 0;
-}
-
 .borderbottom
 {
   border-bottom: solid;
 }
 
+@media (max-width: 575.98px) {
+  .welcome
+  {
+    width: 100%;
+    top: 10%;
+  }
+  header
+  {
+    flex-direction: column;
+    text-align: center;
+  }
+  .grid-item-header
+  {
+    flex-direction: column;
+    font-size: 1.2rem;
+  }
+  form
+  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .login-inputs
+  {
+    display: flex;
+    width: 95%;
+    margin: 1.5%;
+  }
+  .grid-container
+  {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .grid-items
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .welcome
+  {
+    width: 100%;
+    top: 10%;
+  }
+  header
+  {
+    flex-direction: column;
+    text-align: center;
+  }
+  form
+  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .login-inputs
+  {
+    display: flex;
+    width: 95%;
+  }
+  .grid-container
+  {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+ }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  
+ }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { ... }

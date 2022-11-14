@@ -16,6 +16,8 @@ const footerSection = document.querySelector(".grid-item-footer");
 const inputPoints = document.querySelector(".input__points_text");
 const accStatus = document.querySelector(".acc-status");
 const howManySpend = document.querySelector(".howManySpend");
+const loginWindow = document.querySelector('.loginWindow');
+
 // ShetlerChoose
 const shetlerChoose = document.querySelectorAll(".shetler");
 const dogPhotos = document.querySelector(".fundation__donate_photos");
@@ -59,11 +61,12 @@ const accounts = [account1, account2, account3];
 
 let currentUser;
 
-loginBtn.addEventListener("click", function (event) {
+loginBtn.addEventListener('click', function (event) {
   event.preventDefault();
   currentUser = accounts.find((acc) => acc.login === login.value);
 
   if (currentUser.password === password.value) {
+    loginWindow.classList.add('hidden');
     const pointsSum = function (acc) {
       // Get sum of points
       const points = acc.points.reduce((acm, points) => acm + points, 0);
@@ -91,6 +94,7 @@ loginBtn.addEventListener("click", function (event) {
       acc.userName = userName;
       return userName;
     };
+    
     getName(currentUser);
     pointsSum(currentUser);
 
@@ -107,7 +111,7 @@ loginBtn.addEventListener("click", function (event) {
 
     //***      Click handler to send points for shelter
 
-    transferPointsBtn.addEventListener("click", function () {
+    transferPointsBtn.addEventListener("click", function (e) {
       const points = inputPoints.value;
       const correctPoints = currentUser.sumPoints - points;
       const correctCharity = Number(currentUser.sumCharity) + Number(points);
@@ -140,6 +144,8 @@ loginBtn.addEventListener("click", function (event) {
             : `Wybierz schronisko!`
         }`
       );
+      
+      header.scrollIntoView();
     });
     
     const displayHistory = function(acc){
