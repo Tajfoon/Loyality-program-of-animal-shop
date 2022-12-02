@@ -170,4 +170,23 @@ loginBtn.addEventListener('click', function (event) {
     welcome.classList.toggle("hidden");
   }
 });
-//** Display history
+
+const dogList = document.querySelector('.dog__list');
+
+const renderList = function(mov, id){
+const html = `<option value="${id}">${mov.name}</option>`;
+dogList.insertAdjacentHTML('afterbegin', html)
+}
+
+const promise = fetch('https://api.thedogapi.com/v1/breeds/').
+then(response => response.json()).
+then(function(result){
+  result.forEach((mov, id) => renderList(mov, id));
+  dogList.addEventListener('click', function(){
+    if(dogList.value == 0){
+      
+    }
+  })
+
+}).then(function(res){
+});
