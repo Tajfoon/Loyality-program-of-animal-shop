@@ -172,21 +172,35 @@ loginBtn.addEventListener('click', function (event) {
 });
 
 const dogList = document.querySelector('.dog__list');
+const dogInfo = document.querySelector('.dog-info')
+
 
 const renderList = function(mov, id){
 const html = `<option value="${id}">${mov.name}</option>`;
-dogList.insertAdjacentHTML('afterbegin', html)
+dogList.insertAdjacentHTML('afterbegin', html);
+}
+
+const renderInfo = function(mov, id){
+  const html = 
+  `<li>Rasa: ${mov.name}</li>
+  <li>Waga: ${mov.weight.metric}kg</li>
+  <li>Wzrost: ${mov.height.metric}cm</li>
+  <li>Długość życia: ${mov.life_span.slice(0, -5)} lat</li>`;
+
+  dogInfo.insertAdjacentHTML('afterbegin', html);
 }
 
 const promise = fetch('https://api.thedogapi.com/v1/breeds/').
 then(response => response.json()).
 then(function(result){
   result.forEach((mov, id) => renderList(mov, id));
-  dogList.addEventListener('click', function(){
-    if(dogList.value == 0){
-      
-    }
-  })
-
+  return result;
 }).then(function(res){
+  console.log(res);
+  dogList.addEventListener('click', function(e){
+    dogInfo.innerHTML = '';
+    const finded = res.find(finded => finded.id === Number(e.target.value)+1);
+    console.log(finded);
+    renderInfo(finded);
+  })
 });

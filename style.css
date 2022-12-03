@@ -69,10 +69,10 @@ main {
   display: grid;
   width: 70%;
   grid-template-columns: 5fr 3fr 3fr;
-  grid-template-rows: 150px 260px 250px 200px;
+  grid-template-rows: 150px 260px 250px 300px;
   grid-gap: 15px;
   /* Do normalnego użytku 0 */
-  opacity: 1;
+  opacity: 0;
   z-index: 1;
 }
 
@@ -153,17 +153,17 @@ img
   background-color: black;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  position: relative;
+  
 }
 .select-dog
 {
-  position:absolute;
-  top:10%;
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .dog__list
@@ -178,6 +178,8 @@ img
   display: flex;
   width:80%;
   justify-content: space-between;
+  font-size: 2rem;
+  list-style: none;
 }
 .active{
   transition: 2s ease;
