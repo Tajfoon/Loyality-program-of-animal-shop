@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://kit.fontawesome.com/c13611fdff.js" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Oswald:wght@600&display=swap" rel="stylesheet">
 <script defer src="script.js"></script>
 </head>
 <body>
     <header class="loginWindow">
         <h1>Pet Store🐕‍🦺</h1>
-        <form>
+        <form class="login-form flex">
         <div class="login-inputs">
             <input type="text" placeholder="Nazwa użytkownika" class="type-login margin-item type-padding login-inputs">
             <input type="text" placeholder="Hasło" class="type-password margin-item type-padding login-inputs">
@@ -24,26 +25,49 @@
     </header>
 
     <main class="container">
-        <div class="welcome">
-        <p>Witaj w naszym programie lojalnościowym! Naszą misją jest
-            wraz z tobą czynić dobro i sprawić by żaden psiak nie więcej głodny.
-            Kupując u nas produkty, gromadzisz punkty i to ty wybierasz placówkę,
-            której pomożesz. Przelewając określoną liczbę punktów zyskujesz
-            odznaczenia konta:
-        </p>
-        <p ></p>
-        <p class="medal">🥉 = 5% rabatu</p>
-        <p class="medal">🥈 = 10% rabatu</p>
-        <p class="medal">🥇 = 15% rabatu</p>
 
-        <h2>Czyń z nami dobro już dziś!</h2>
+        <!-- SLIDER  ----------------->
+
+        <div class="slider">
+            <button class="arrow arrow__left"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow arrow__right"><i class="fa-solid fa-chevron-right"></i></button>
+            
+            <div class="slide slide__info">
+
+            <div class="slide__content">
+                <p>Witaj w naszym programie lojalnościowym! Naszą misją jest
+                wraz z tobą czynić dobro i sprawić by żaden psiak nie więcej głodny.
+                Kupując u nas produkty, gromadzisz punkty i to ty wybierasz placówkę,
+                której pomożesz. Przelewając określoną liczbę punktów zyskujesz
+                odznaczenia konta:
+                
+                </p>
+                <p ></p>
+                <p class="medal">🥉 = 5% rabatu</p>
+                <p class="medal">🥈 = 10% rabatu</p>
+                <p class="medal">🥇 = 15% rabatu</p>
+                <h2>Czyń z nami dobro już dziś!</h2>
+                </div>
+            </div>
+            <div class="slide slide__info2">
+                <img src="img/slider2.jpg" alt="">
+                <h2 class="slide__communicate">Aby włączyć się do akcji - <a class="slide__register" href="">zarejestruj</a></h2>
+            </div>
+            <div class="slide slide__info3">
+                <img src="img/slider3.jpg" alt="">
+                <h2 class="slide__communicate2">Czynienie dobra - to takie proste!</h2>
+            </div>
         </div>
-    <div class="grid-container">
+
+        <!-- /SLIDER  ---------------->
+        
+        <div class="grid-container">
         
         <div class="grid-items grid-item-header">
             <p class="greetings">Witaj: Customer name 🐶 </p>
             <p class="acc-status">Status</p>
             <p class="current-points">Punkty lojalnościowe: 300pkt </p>
+            <button class="logOut--button button-style">Wyloguj</button>
             <!-- <button class="reward__charitbale_btn button-style">Katalog nagród 🎁</button> -->
         </div>
         <div class="grid-items grid-item-sidebar">
@@ -100,18 +124,18 @@
         <div class="grid-item-footer flex-center">
             <div class="select-dog">Chcesz wiedzieć więcej na temat swojego pupila?
             <select class="dog__list">
-                
+                <option>Wybierz rasę</option>
             </select>   
             </div>
             <ul class="dog-info">
                 <li>Rasa</li>
                 <li>Waga</li>
                 <li>Wzrost</li>
-                <li>XXXXX</li>
+                <li>Długość życia</li>
             </ul>
         </div>
         </div>
-    </div>
+        </div>
     </main>
 </body>
 

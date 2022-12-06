@@ -8,6 +8,7 @@ body {
   font-family: "Forum", cursive;
   font-family: "Oswald", sans-serif;
   font-size: 12px;
+  box-sizing: border-box;
 }
 header {
   display: flex;
@@ -54,13 +55,12 @@ header {
 
 main {
   position: absolute;
+  z-index: -1;
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
   text-shadow: 2px 4px 13px rgba(66, 68, 90, 1);
 }
 
@@ -68,31 +68,92 @@ main {
   margin: 2%;
   display: grid;
   width: 70%;
+  height: 100%;
   grid-template-columns: 5fr 3fr 3fr;
   grid-template-rows: 150px 260px 250px 300px;
   grid-gap: 15px;
+  color:white;
   /* Do normalnego użytku 0 */
   opacity: 0;
-  z-index: 1;
+  z-index: -1;
 }
 
+.slider{
+  display: flex;
+  justify-content:normal;
+    align-items:normal;
+  position: absolute;
+  width: 100%;
+  height: 60%;
+}
 
-.welcome
+.slide
 {
-  position:absolute;
-  width: 50%;
-  height: 40%;
-  padding: 25px;
-  top: 20vh;
-  background-color: #000000;
-  text-shadow: none;
-  display:flex;
-  text-align: center;
-  align-items: center;
+  position: absolute;
+  left: 5%;
+  display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  font-size: 1.1em;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 90%;
+  font-size: 1.6rem;
+  padding: 30px;
+  transition: transform 1.5s;
 }
+
+.slide__content
+{
+    color:white;
+    background-color: black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    
+}
+
+
+.slide__communicate
+{
+  position: absolute;
+  right: 25%;
+  bottom: 20%;
+}
+
+.slide__communicate2
+{
+  position: absolute;
+  left: 22%;
+  top: 40%;
+}
+
+.slider img
+{
+
+  width: 65%;
+}
+.arrow{
+  position: absolute;
+  border-radius: 50%;
+  border-style: none;
+  font-size: 4rem;
+  top:50%;
+  z-index: 10;
+  display:flex;
+}
+.arrow__left{
+  left: 15%;
+  background: none;
+}
+.arrow__right{
+  right: 15%;
+  background: none;
+}
+
 .medal
 {
   font-size: 30px;
@@ -103,6 +164,7 @@ img
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 1s ease-out;
 }
 
 .grid-item-header {
@@ -155,7 +217,6 @@ img
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 }
 .select-dog
 {
@@ -227,6 +288,17 @@ fieldset {
   color: red;
 }
 
+.logOut--button{
+  position: absolute;
+  top:0%;
+  right: -10%;
+  background-color: green;
+  border-radius: 10%;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  
+}
+
 .margin-item {
   margin: 5px;
 }
@@ -246,12 +318,80 @@ fieldset {
   text-align: center;
 }
 
+.flex{
+  display: flex;
+}
+
 .borderbottom
 {
   border-bottom: solid;
 }
 
 @media (max-width: 575.98px) {
+
+  .logOut--button{
+
+    top:3%;
+    right: 3%;
+    
+  }
+
+  .arrow
+  {
+    font-size: 1rem;
+  }
+
+  .slide__content
+  {
+    font-size: 0.8rem;
+    width: 90%;
+  }
+
+  .slide{
+    width: 100%;
+    left: 0%;
+  }
+  .slider
+  {
+    
+    height: 40%;
+    margin-top: 5%;
+}
+.slider img
+{
+  width: 100%;
+}
+
+h2{
+  font-size: 1rem;
+}
+.arrow__left
+{
+  left: 5%;
+}
+.arrow__right
+{
+  right: 5%;
+}
+
+.container{
+  justify-content: flex-start;
+}
+  
+.slide__communicate
+{
+  position: absolute;
+  right: 12%;
+  bottom: 20%;
+}
+
+.slide__communicate2
+{
+  position: absolute;
+  left: 10%;
+  top: 40%;
+}
+
   .welcome
   {
     width: 100%;

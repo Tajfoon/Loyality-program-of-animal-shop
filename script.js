@@ -6,6 +6,9 @@ const password = document.querySelector(".type-password");
 const loginBtn = document.querySelector(".login-button");
 const transferPointsBtn = document.querySelector(".transfer__points_btn");
 const changeModeBtn = document.querySelector(".reward__charitbale_btn");
+const logOut = document.querySelector(".logOut--button");
+const arrow__left = document.querySelector(".arrow__left");
+const arrow__right = document.querySelector(".arrow__right");
 
 //SECTIONS
 const container = document.querySelector(".grid-container");
@@ -16,7 +19,8 @@ const footerSection = document.querySelector(".grid-item-footer");
 const inputPoints = document.querySelector(".input__points_text");
 const accStatus = document.querySelector(".acc-status");
 const howManySpend = document.querySelector(".howManySpend");
-const loginWindow = document.querySelector('.loginWindow');
+const loginWindow = document.querySelector(".loginWindow");
+const slider = document.querySelector(".slider");
 
 // ShetlerChoose
 const shetlerChoose = document.querySelectorAll(".shetler");
@@ -26,13 +30,21 @@ const currentPoints = document.querySelector(".current-points");
 const shetlerImg = document.querySelector("#shetlerimg");
 const petShopProducts = {};
 
-const welcome = document.querySelector(".welcome");
+const slide = document.querySelectorAll(".slide");
 
 const account1 = {
   name: "Erica Johnsons",
-  points: [50, 100, 25, 50, 23, 56, 50, 100 ],
-  product: ['Wild-animal CARE 5kg', 'Kaganiec size. "M"', 'Przysmaki jagnięcina', 'Saszetka BEEF', 'Wild-Animal CARE 2.5kg',
-  'Wild-animal CARE 5kg', 'Kaganiec size. "M"', 'Przysmaki jagnięcina'],
+  points: [50, 100, 25, 50, 23, 56, 50, 100],
+  product: [
+    "Wild-animal CARE 5kg",
+    'Kaganiec size. "M"',
+    "Przysmaki jagnięcina",
+    "Saszetka BEEF",
+    "Wild-Animal CARE 2.5kg",
+    "Wild-animal CARE 5kg",
+    'Kaganiec size. "M"',
+    "Przysmaki jagnięcina",
+  ],
   charityPoints: [37, 23, 15, 100, 20, 23],
   status: "",
   login: "erica",
@@ -61,12 +73,14 @@ const accounts = [account1, account2, account3];
 
 let currentUser;
 
-loginBtn.addEventListener('click', function (event) {
+loginBtn.addEventListener("click", function (event) {
   event.preventDefault();
   currentUser = accounts.find((acc) => acc.login === login.value);
 
   if (currentUser.password === password.value) {
-    loginWindow.classList.add('hidden');
+    loginWindow.classList.add("hidden");
+    slider.classList.add("hidden");
+
     const pointsSum = function (acc) {
       // Get sum of points
       const points = acc.points.reduce((acm, points) => acm + points, 0);
@@ -94,7 +108,7 @@ loginBtn.addEventListener('click', function (event) {
       acc.userName = userName;
       return userName;
     };
-    
+
     getName(currentUser);
     pointsSum(currentUser);
 
@@ -126,15 +140,17 @@ loginBtn.addEventListener('click', function (event) {
       //*     Change status of account
       if (currentUser.sumCharity > 500) {
         currentUser.status = "Status konta GOLD 🏅";
-        header.style = "background-color: gold;"
+        header.style = "background-color: gold;";
       } else if (currentUser.sumCharity > 300) {
         currentUser.status = "Status konta SILVER 🥈";
-        header.style = "background-color: silver;"
+        header.style = "background-color: silver;";
       } else if (currentUser.sumCharity > 150) {
         currentUser.status = "Status konta BRONZE 🥉";
       }
       //*    Display points
-      currentPoints.innerHTML = `<p>Przekazałeś już: ${currentUser.sumCharity} = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
+      currentPoints.innerHTML = `<p>Przekazałeś już: ${
+        currentUser.sumCharity
+      } = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
       howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
       accStatus.innerHTML = currentUser.status;
       console.log(
@@ -144,63 +160,114 @@ loginBtn.addEventListener('click', function (event) {
             : `Wybierz schronisko!`
         }`
       );
-      
       header.scrollIntoView();
     });
-    
-    const displayHistory = function(acc){
-      acc.points.forEach(function(val, i){
+
+    //Log out
+    logOut.addEventListener("click", function () {
+      login.value = "";
+      password.value = "";
+      currentUser = "";
+      container.style.opacity = 0;
+      loginWindow.classList.remove("hidden");
+      slider.classList.remove("hidden");
+    });
+
+    const displayHistory = function (acc) {
+      acc.points.forEach(function (val, i) {
         const addExchange = `
     <div class="bought-history-row">
-    <p class="bought__date"> ${i +1} </p>
+    <p class="bought__date"> ${i + 1} </p>
     <p class="bought__product"> ${acc.product[i]} </p>
     <p class="bought__points"> ${val} points </p>
     </div>`;
-    exchangeHistory.insertAdjacentHTML('beforeend', addExchange);
-      })
-    
-    }
+        exchangeHistory.insertAdjacentHTML("beforeend", addExchange);
+      });
+    };
     displayHistory(currentUser);
 
     greetings.innerHTML = `Witaj: ${currentUser.userName}🐶`;
-    currentPoints.innerHTML = `<p>Przekazałeś już: ${currentUser.sumCharity} = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
+    currentPoints.innerHTML = `<p>Przekazałeś już: ${
+      currentUser.sumCharity
+    } = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
     accStatus.innerHTML = currentUser.status;
     howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
     container.classList.toggle("active");
-    welcome.classList.toggle("hidden");
   }
 });
 
-const dogList = document.querySelector('.dog__list');
-const dogInfo = document.querySelector('.dog-info')
+const dogList = document.querySelector(".dog__list");
+const dogInfo = document.querySelector(".dog-info");
 
+const renderList = function (mov, id) {
+  const html = `<option value="${id}">${mov.name}</option>`;
+  dogList.insertAdjacentHTML("afterbegin", html);
+};
 
-const renderList = function(mov, id){
-const html = `<option value="${id}">${mov.name}</option>`;
-dogList.insertAdjacentHTML('afterbegin', html);
-}
-
-const renderInfo = function(mov, id){
-  const html = 
-  `<li>Rasa: ${mov.name}</li>
+const renderInfo = function (mov, id) {
+  const html = `<li>Rasa: ${mov.name}</li>
   <li>Waga: ${mov.weight.metric}kg</li>
   <li>Wzrost: ${mov.height.metric}cm</li>
   <li>Długość życia: ${mov.life_span.slice(0, -5)} lat</li>`;
 
-  dogInfo.insertAdjacentHTML('afterbegin', html);
-}
+  dogInfo.insertAdjacentHTML("afterbegin", html);
+};
 
-const promise = fetch('https://api.thedogapi.com/v1/breeds/').
-then(response => response.json()).
-then(function(result){
-  result.forEach((mov, id) => renderList(mov, id));
-  return result;
-}).then(function(res){
-  console.log(res);
-  dogList.addEventListener('click', function(e){
-    dogInfo.innerHTML = '';
-    const finded = res.find(finded => finded.id === Number(e.target.value)+1);
-    console.log(finded);
-    renderInfo(finded);
+const promise = fetch("https://api.thedogapi.com/v1/breeds/")
+  .then((response) => response.json())
+  .then(function (result) {
+    result.forEach((mov, id) => renderList(mov, id));
+    return result;
   })
-});
+  .then(function (res) {
+    console.log(res);
+    dogList.addEventListener("click", function (e) {
+      dogInfo.innerHTML = "";
+      const finded = res.find(
+        (finded) => finded.id === Number(e.target.value) + 1
+      );
+      renderInfo(finded);
+    });
+  }).catch(err => console.log(`Something went wrong! ${err}`));
+
+let currentSlide = 0;
+let MaxSlides = slide.length;
+
+const moveSlide = function (slide) {
+  slide.forEach((mov, i) => {
+    mov.style.transform = `translateX(${100 * (i - currentSlide)}%)`;
+  });
+};
+
+const moveRight = () => {
+  if (currentSlide < MaxSlides) {
+    moveSlide(slide, currentSlide);
+    currentSlide++;
+  } else {
+    currentSlide = 0;
+    moveSlide(slide, currentSlide);
+  }
+};
+
+const moveLeft = () => {
+  if (currentSlide === 0) {
+    currentSlide = MaxSlides - 1;
+    moveSlide(slide, currentSlide);
+  } else {
+    currentSlide--;
+    moveSlide(slide, currentSlide);
+  }
+};
+
+
+
+moveSlide(slide);
+
+setInterval(moveRight, 8000);
+const myTimeout = setTimeout(moveRight, 2000);
+// Move slide
+
+arrow__right.addEventListener("click", moveRight);
+
+arrow__left.addEventListener("click", moveLeft);
+
