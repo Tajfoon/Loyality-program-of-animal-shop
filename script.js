@@ -22,6 +22,8 @@ const howManySpend = document.querySelector(".howManySpend");
 const loginWindow = document.querySelector(".loginWindow");
 const slider = document.querySelector(".slider");
 const footer = document.querySelector(".footer");
+const sectionFirst = document.querySelector(".section-first");
+const sectionSec = document.querySelector(".section-sec");
 
 // ShetlerChoose
 const shetlerChoose = document.querySelectorAll(".shetler");
@@ -93,6 +95,9 @@ loginBtn.addEventListener("click", function (event) {
     slider.classList.add("hidden");
     footer.classList.add("hidden");
     footer.classList.remove("flex-center");
+    container.style.zIndex = "2";
+    sectionFirst.classList.add("hidden");
+    sectionSec.classList.add("hidden");
 
 
     const pointsSum = function (acc) {
@@ -244,6 +249,9 @@ const promise = fetch("https://api.thedogapi.com/v1/breeds/")
     });
   }).catch(err => console.log(`Something went wrong! ${err}`));
 
+
+// SLIDER ------------------------>
+
 let currentSlide = 0;
 let MaxSlides = slide.length;
 
@@ -273,8 +281,6 @@ const moveLeft = () => {
   }
 };
 
-
-
 moveSlide(slide);
 
 setInterval(moveRight, 8000);
@@ -285,3 +291,4 @@ arrow__right.addEventListener("click", moveRight);
 
 arrow__left.addEventListener("click", moveLeft);
 
+// SLIDER --------------END------>
