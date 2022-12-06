@@ -21,6 +21,7 @@ const accStatus = document.querySelector(".acc-status");
 const howManySpend = document.querySelector(".howManySpend");
 const loginWindow = document.querySelector(".loginWindow");
 const slider = document.querySelector(".slider");
+const footer = document.querySelector(".footer");
 
 // ShetlerChoose
 const shetlerChoose = document.querySelectorAll(".shetler");
@@ -53,6 +54,16 @@ const account1 = {
 
 const account2 = {
   name: "Mark Sullivan",
+  product: [
+    "Wild-animal CARE 5kg",
+    'Kaganiec size. "M"',
+    "Przysmaki jagnięcina",
+    "Saszetka BEEF",
+    "Wild-Animal CARE 2.5kg",
+    "Wild-animal CARE 5kg",
+    'Kaganiec size. "M"',
+    "Przysmaki jagnięcina",
+  ],
   points: [50, 100, 250, 10, 15, 35],
   charityPoints: [37, 23, 15, 100, 20],
   status: "",
@@ -80,6 +91,9 @@ loginBtn.addEventListener("click", function (event) {
   if (currentUser.password === password.value) {
     loginWindow.classList.add("hidden");
     slider.classList.add("hidden");
+    footer.classList.add("hidden");
+    footer.classList.remove("flex-center");
+
 
     const pointsSum = function (acc) {
       // Get sum of points
@@ -88,8 +102,6 @@ loginBtn.addEventListener("click", function (event) {
         (acm, points) => acm + points,
         0
       );
-      console.log(points);
-      console.log(acc.status);
       // Check status of user
       if (charityPoints > 500) {
         acc.status = "Status konta GOLD 🏅";
@@ -108,9 +120,6 @@ loginBtn.addEventListener("click", function (event) {
       acc.userName = userName;
       return userName;
     };
-
-    getName(currentUser);
-    pointsSum(currentUser);
 
     //***
 
@@ -147,20 +156,8 @@ loginBtn.addEventListener("click", function (event) {
       } else if (currentUser.sumCharity > 150) {
         currentUser.status = "Status konta BRONZE 🥉";
       }
-      //*    Display points
-      currentPoints.innerHTML = `<p>Przekazałeś już: ${
-        currentUser.sumCharity
-      } = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
-      howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
-      accStatus.innerHTML = currentUser.status;
-      console.log(
-        `${
-          currentUser.choosenShetler
-            ? `Przelałeś punkty na ${currentUser.choosenShetler}`
-            : `Wybierz schronisko!`
-        }`
-      );
-      header.scrollIntoView();
+     
+    displayPoints();
     });
 
     //Log out
@@ -173,6 +170,17 @@ loginBtn.addEventListener("click", function (event) {
       slider.classList.remove("hidden");
     });
 
+     //*    Display points
+     const displayPoints = function()
+     {
+     currentPoints.innerHTML = `<p>Przekazałeś już: ${
+       currentUser.sumCharity
+     } = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
+     howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
+     accStatus.innerHTML = currentUser.status;
+     header.scrollIntoView();
+   }
+
     const displayHistory = function (acc) {
       acc.points.forEach(function (val, i) {
         const addExchange = `
@@ -184,6 +192,10 @@ loginBtn.addEventListener("click", function (event) {
         exchangeHistory.insertAdjacentHTML("beforeend", addExchange);
       });
     };
+
+
+    getName(currentUser);
+    pointsSum(currentUser);
     displayHistory(currentUser);
 
     greetings.innerHTML = `Witaj: ${currentUser.userName}🐶`;
@@ -195,6 +207,8 @@ loginBtn.addEventListener("click", function (event) {
     container.classList.toggle("active");
   }
 });
+
+
 
 const dogList = document.querySelector(".dog__list");
 const dogInfo = document.querySelector(".dog-info");

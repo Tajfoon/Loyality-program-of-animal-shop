@@ -19,6 +19,16 @@ header {
 
 /* ------------- All buttons -----------------*/
 
+.logOut--button {
+  position: absolute;
+  top: 0%;
+  right: -10%;
+  background-color: green;
+  border-radius: 10%;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
 .login-button {
   width: 100px;
    display: inline-block;
@@ -31,6 +41,7 @@ header {
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
   text-align: center;
   transition: all 0.2s;
+  cursor: pointer;
 }
 .login-button:hover {
   background-color: #f8d800;
@@ -51,6 +62,25 @@ header {
   background-color: ;
 }
 
+.arrow {
+  position: absolute;
+  border-radius: 50%;
+  border-style: none;
+  font-size: 4rem;
+  top: 50%;
+  z-index: 10;
+  display: flex;
+  cursor: pointer;
+}
+.arrow__left {
+  left: 15%;
+  background: none;
+}
+.arrow__right {
+  right: 15%;
+  background: none;
+}
+
 /* ------------------------------------- */
 
 main {
@@ -62,6 +92,7 @@ main {
   align-items: center;
   flex-direction: column;
   text-shadow: 2px 4px 13px rgba(66, 68, 90, 1);
+  overflow-x: hidden;
 }
 
 .grid-container {
@@ -72,23 +103,24 @@ main {
   grid-template-columns: 5fr 3fr 3fr;
   grid-template-rows: 150px 260px 250px 300px;
   grid-gap: 15px;
-  color:white;
+  color: white;
   /* Do normalnego użytku 0 */
   opacity: 0;
   z-index: -1;
 }
 
-.slider{
+/* SLIDER!!! */
+
+.slider {
   display: flex;
-  justify-content:normal;
-    align-items:normal;
+  justify-content: normal;
+  align-items: normal;
   position: absolute;
   width: 100%;
   height: 60%;
 }
 
-.slide
-{
+.slide {
   position: absolute;
   left: 5%;
   display: flex;
@@ -103,64 +135,40 @@ main {
   transition: transform 1.5s;
 }
 
-.slide__content
-{
-    color:white;
-    background-color: black;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    width: 60%;
-    justify-content: space-evenly;
-    flex-direction: column;
-    
+.slide__content {
+  color: white;
+  background-color: black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 60%;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
-
-.slide__communicate
-{
+.slide__communicate {
   position: absolute;
   right: 25%;
   bottom: 20%;
 }
 
-.slide__communicate2
-{
+.slide__communicate2 {
   position: absolute;
   left: 22%;
   top: 40%;
 }
 
-.slider img
-{
-
+.slider img {
   width: 65%;
 }
-.arrow{
-  position: absolute;
-  border-radius: 50%;
-  border-style: none;
-  font-size: 4rem;
-  top:50%;
-  z-index: 10;
-  display:flex;
-}
-.arrow__left{
-  left: 15%;
-  background: none;
-}
-.arrow__right{
-  right: 15%;
-  background: none;
-}
 
-.medal
-{
+/* ------------------------------------- */
+
+.medal {
   font-size: 30px;
 }
 
-img
-{
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -195,8 +203,6 @@ img
   grid-row: 2 / 4;
 }
 
-.which_one {
-}
 
 .grid-item-send {
   background-color: black;
@@ -210,7 +216,7 @@ img
   grid-row: 2 / 2;
 }
 
-.grid-item-footer{
+.grid-item-footer {
   grid-column: 1 / -1;
   background-color: black;
   color: white;
@@ -218,8 +224,9 @@ img
   flex-direction: column;
   justify-content: space-between;
 }
-.select-dog
-{
+
+
+.select-dog {
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -227,29 +234,19 @@ img
   margin-bottom: 20px;
 }
 
-.dog__list
-{
+.dog__list {
   width: 30%;
   height: 2rem;
   margin-top: 10px;
   line-height: 3;
 }
-.dog-info
-{
+.dog-info {
   display: flex;
-  width:80%;
+  width: 80%;
   justify-content: space-between;
   font-size: 2rem;
   list-style: none;
 }
-.active{
-  transition: 2s ease;
-  opacity: 1;
-}
-.hidden{
-  display: none;
-}
-
 
 .bought-history-row {
   padding: 20px 30px 20px 30px;
@@ -260,10 +257,21 @@ img
   padding: 10px;
   font-size: 1em;
   overflow-y: scroll;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
+
+.footer
+{
+  position: fixed;
+  border-top: 5px solid;
+  font-size: 1rem;
+  bottom: 0%;
+  width: 100%;
+  height: 5%;
+}
+/* Addinational styles */
 
 .shetler {
   margin: 15px;
@@ -284,19 +292,17 @@ fieldset {
   justify-content: center;
   padding: 20px;
 }
-.login-inputs{
+
+.login-inputs {
   color: red;
 }
 
-.logOut--button{
-  position: absolute;
-  top:0%;
-  right: -10%;
-  background-color: green;
-  border-radius: 10%;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  
+.active {
+  transition: 2s ease;
+  opacity: 1;
+}
+.hidden {
+  display: none;
 }
 
 .margin-item {
@@ -318,151 +324,135 @@ fieldset {
   text-align: center;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.borderbottom
-{
+.borderbottom {
   border-bottom: solid;
 }
 
+/* ------------------------------------- */
+
+/*Small devies*/
 @media (max-width: 575.98px) {
-
-  .logOut--button{
-
-    top:3%;
+  .logOut--button {
+    top: 3%;
     right: 3%;
-    
   }
 
-  .arrow
-  {
+  .arrow {
     font-size: 1rem;
   }
 
-  .slide__content
-  {
+  .slide__content {
     font-size: 0.8rem;
     width: 90%;
   }
 
-  .slide{
+  .dog-info {
+    font-size: 1.2rem;
+  }
+
+  .slide {
     width: 100%;
     left: 0%;
   }
-  .slider
-  {
-    
+  .slider {
     height: 40%;
     margin-top: 5%;
-}
-.slider img
-{
-  width: 100%;
-}
+  }
+  .slider img {
+    width: 100%;
+  }
 
-h2{
-  font-size: 1rem;
-}
-.arrow__left
-{
-  left: 5%;
-}
-.arrow__right
-{
-  right: 5%;
-}
+  h2 {
+    font-size: 1rem;
+  }
+  .arrow__left {
+    left: 5%;
+  }
+  .arrow__right {
+    right: 5%;
+  }
 
-.container{
-  justify-content: flex-start;
-}
-  
-.slide__communicate
-{
-  position: absolute;
-  right: 12%;
-  bottom: 20%;
-}
+  .container {
+    justify-content: flex-start;
+  }
 
-.slide__communicate2
-{
-  position: absolute;
-  left: 10%;
-  top: 40%;
-}
+  .slide__communicate {
+    position: absolute;
+    right: 12%;
+    bottom: 20%;
+  }
 
-  .welcome
-  {
+  .slide__communicate2 {
+    position: absolute;
+    left: 10%;
+    top: 40%;
+  }
+
+  .welcome {
     width: 100%;
     top: 10%;
   }
-  header
-  {
+  header {
     flex-direction: column;
     text-align: center;
   }
-  .grid-item-header
-  {
+  .grid-item-header {
     flex-direction: column;
     font-size: 1.2rem;
   }
-  form
-  {
+  form {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  .login-inputs
-  {
+  .login-inputs {
     display: flex;
     width: 95%;
     margin: 1.5%;
   }
-  .grid-container
-  {
+  .grid-container {
     display: flex;
     width: 100%;
     flex-direction: column;
   }
-  .grid-items
 }
+/*------------*/
 
-// Small devices (landscape phones, less than 768px)
+/* (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-  .welcome
-  {
+  .welcome {
     width: 100%;
     top: 10%;
   }
-  header
-  {
+  header {
     flex-direction: column;
     text-align: center;
   }
-  form
-  {
+  form {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-  .login-inputs
-  {
+  .login-inputs {
     display: flex;
     width: 95%;
   }
-  .grid-container
-  {
+  .grid-container {
     display: flex;
     width: 100%;
     flex-direction: column;
   }
- }
+}
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
-  
- }
+}
 
 // Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) { ... }
+@media (max-width: 1199.98px) {
+  ...;
+}
