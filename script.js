@@ -23,6 +23,8 @@ const howManySpend = document.querySelector(".howManySpend");
 const loginWindow = document.querySelector(".loginWindow");
 const slider = document.querySelector(".slider");
 const footer = document.querySelector(".footer");
+const main = document.querySelector('main');
+const article = document.querySelector('article');
 const sectionFirst = document.querySelector(".section-first");
 const sectionSec = document.querySelector(".section-sec");
 const section__about = document.querySelector(".section__about");
@@ -38,7 +40,7 @@ const petShopProducts = {};
 const slide = document.querySelectorAll(".slide");
 
 const account1 = {
-  name: "Erica Johnsons",
+  name: "Ricky Johnsons",
   points: [50, 100, 25, 50, 23, 56, 50, 100],
   product: [
     "Wild-animal CARE 5kg",
@@ -52,8 +54,8 @@ const account1 = {
   ],
   charityPoints: [37, 23, 15, 100, 20, 23],
   status: "",
-  login: "erica",
-  password: "erica123",
+  login: "ricky",
+  password: "ricky123",
 };
 
 const account2 = {
@@ -96,11 +98,13 @@ loginBtn.addEventListener("click", function (event) {
     loginWindow.classList.add("hidden");
     slider.classList.add("hidden");
     footer.classList.add("hidden");
-    footer.classList.remove("flex-center");
-    container.style.zIndex = "2";
     sectionFirst.classList.add("hidden");
     sectionSec.classList.add("hidden");
-
+    article.classList.add('hidden');
+    main.classList.remove('absolute');
+    container.style.zIndex = "2";
+    
+    footer.classList.remove("flex-center");
 
     const pointsSum = function (acc) {
       // Get sum of points
@@ -133,7 +137,7 @@ loginBtn.addEventListener("click", function (event) {
     shetlerChoose.forEach(function (shetler, i) {
       shetler.addEventListener("click", function (e) {
         const currentImg = shetler.value;
-        console.log(currentImg);
+        // console.log(currentImg);
         shetlerImg.src = `img/${currentImg}.jpg`;
         currentUser.choosenShetler = shetler.value;
       });
@@ -175,14 +179,18 @@ loginBtn.addEventListener("click", function (event) {
       container.style.opacity = 0;
       loginWindow.classList.remove("hidden");
       slider.classList.remove("hidden");
+    footer.classList.remove("hidden");
+    sectionFirst.classList.remove("hidden");
+    sectionSec.classList.remove("hidden");
+    article.classList.remove('hidden');
+    main.classList.add('absolute');
+    main.style.position = 'static';
     });
 
      //*    Display points
      const displayPoints = function()
      {
-     currentPoints.innerHTML = `<p>Przekazałeś już: ${
-       currentUser.sumCharity
-     } = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
+     currentPoints.innerHTML = `<p>Przekazałeś już: ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
      howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
      accStatus.innerHTML = currentUser.status;
      header.scrollIntoView();
@@ -206,9 +214,7 @@ loginBtn.addEventListener("click", function (event) {
     displayHistory(currentUser);
 
     greetings.innerHTML = `Witaj: ${currentUser.userName}🐶`;
-    currentPoints.innerHTML = `<p>Przekazałeś już: ${
-      currentUser.sumCharity
-    } = ${String(currentUser.sumCharity)[0]}kg karmy.</p>`;
+    currentPoints.innerHTML = `<p>Przekazałeś już: ${String(currentUser.sumCharity)[0]}kg karmy</p>`;
     accStatus.innerHTML = currentUser.status;
     howManySpend.innerHTML = `<h3>Punkty do wydania: ${currentUser.sumPoints}</h3>`;
     container.classList.toggle("active");
@@ -241,7 +247,7 @@ const promise = fetch("https://api.thedogapi.com/v1/breeds/")
     return result;
   })
   .then(function (res) {
-    console.log(res);
+    // console.log(res);
     dogList.addEventListener("click", function (e) {
       dogInfo.innerHTML = "";
       const finded = res.find(
@@ -303,7 +309,7 @@ arrow__down.addEventListener('click', function(){
 
 let callBack = (entries) =>{
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
   entry.isIntersecting && entry.target.classList.remove('section--unvisible');
 
 }

@@ -20,7 +20,11 @@ body {
   
 }
 header {
+  position: absolute;
+  height: 4rem;
+  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-around;
   padding-top: 5px;
   font-size: 15px;
@@ -93,7 +97,7 @@ header {
 .arrow__down
 {
   position: relative;
-  top: 105%;
+  top: 99%;
   right: -50%;
 }
 
@@ -102,12 +106,21 @@ header {
 main {
   z-index: -1;
   width: 100%;
+  height: 80%;
+  top: 12%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-shadow: 2px 4px 13px rgba(66, 68, 90, 1);
-  overflow-x: hidden;
+}
+
+article
+{
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 120%;
 }
 
 .grid-container {
@@ -116,7 +129,7 @@ main {
   width: 70%;
   height: 100%;
   grid-template-columns: 5fr 3fr 3fr;
-  grid-template-rows: 150px 260px 250px 300px;
+  grid-template-rows: 150px 220px 220px 170px;
   grid-gap: 15px;
   color: var(--third-color);
   /* Do normalnego użytku 0 */
@@ -127,12 +140,14 @@ main {
 /* SLIDER!!! */
 
 .slider {
+  position: absolute;
+  top: 20%;
   display: flex;
   justify-content: normal;
   align-items: normal;
   position: absolute;
   width: 100%;
-  height: 60%;
+  height: 80%;
   margin-bottom: 10%;
 }
 
@@ -223,7 +238,7 @@ img {
 .grid-item-send {
   background-color: black;
   padding: 7px;
-  font-size: 15px;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -238,7 +253,8 @@ img {
   color: var(--third-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center
 }
 
 
@@ -260,7 +276,7 @@ img {
   display: flex;
   width: 80%;
   justify-content: space-between;
-  font-size: 2rem;
+  font-size: 1.2rem;
   list-style: none;
 }
 
@@ -281,19 +297,22 @@ img {
 .footer
 {
   position: absolute;
+  top: 270%;
   background-color: black;
   color: var(--third-color);
   font-size: 1rem;
   margin-top: 50px;
   width: 100%;
-  height: 15%;
+  height: 10%;
   font-size: 2rem;
 }
 
 .section{
   width: 100%;
-  height: 100%;
-  font-size: 1.3rem;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
   transition: 1.5s ease-in;
 }
 .section-first h1{
@@ -301,24 +320,27 @@ img {
 }
 .section-sec h1{
   text-decoration: underline var(--sec-color) 3px;
+  margin-top: 8rem;
 }
 .section__content
 {
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  width: 80%;
-  height: 50%;
+  width: 100%;
+  height: 80%;
 }
 .section-first img
 {
-  width: 40%;
-  box-shadow: -15px 15px 0px 0px var(--sec-color)
+  width: 60%;
 }
 .section-sec img
 {
   width: 50%;
-  box-shadow:  15px -15px var(--first-color)
+}
+.section__content img
+{
+  object-fit: contain;
 }
 .section__about
 {
@@ -329,7 +351,6 @@ img {
 }
 .section-sec
 {
-  margin-top: 120px;
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -374,6 +395,11 @@ fieldset {
   display: none;
 }
 
+.absolute
+{
+  position: absolute;
+}
+
 .lazy
 {
   filter: blur(20px);
@@ -406,6 +432,7 @@ fieldset {
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 1rem;
 }
 
 .flex {
@@ -425,6 +452,7 @@ fieldset {
   .logOut--button {
     top: 3%;
     right: 3%;
+    font-size: 0.7rem;
   }
 
   .arrow {
@@ -446,7 +474,7 @@ fieldset {
   }
   .slider {
     height: 70%;
-    margin-top: 5%;
+    margin-top: 8%;
   }
   .slider img {
     width: 100%;
@@ -464,7 +492,7 @@ fieldset {
 
   .container {
     justify-content: flex-start;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   .slide__communicate {
@@ -484,6 +512,15 @@ fieldset {
     width: 100%;
     font-size: 1rem;
   }
+  
+  .section-first
+  {
+    background-color: var(--sec-color);
+  }
+
+  .section{
+    font-size: 1.3rem;
+  }
 
   .welcome {
     width: 100%;
@@ -492,6 +529,7 @@ fieldset {
   header {
     flex-direction: column;
     text-align: center;
+    height: 10rem;
   }
   .grid-item-header {
     flex-direction: column;
