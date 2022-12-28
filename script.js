@@ -9,6 +9,7 @@ const changeModeBtn = document.querySelector(".reward__charitbale_btn");
 const logOut = document.querySelector(".logOut--button");
 const arrow__left = document.querySelector(".arrow__left");
 const arrow__right = document.querySelector(".arrow__right");
+const arrow__down = document.querySelector('.arrow__down');
 
 //SECTIONS
 const container = document.querySelector(".grid-container");
@@ -24,7 +25,8 @@ const slider = document.querySelector(".slider");
 const footer = document.querySelector(".footer");
 const sectionFirst = document.querySelector(".section-first");
 const sectionSec = document.querySelector(".section-sec");
-
+const section__about = document.querySelector(".section__about");
+const allSections = document.querySelectorAll('.section');
 // ShetlerChoose
 const shetlerChoose = document.querySelectorAll(".shetler");
 const dogPhotos = document.querySelector(".fundation__donate_photos");
@@ -292,3 +294,29 @@ arrow__right.addEventListener("click", moveRight);
 arrow__left.addEventListener("click", moveLeft);
 
 // SLIDER --------------END------>
+
+//Slide into ABOUT US!
+
+arrow__down.addEventListener('click', function(){
+  sectionFirst.scrollIntoView({behavior:"smooth"});
+})
+
+let callBack = (entries) =>{
+  const [entry] = entries;
+  console.log(entry);
+  entry.isIntersecting && entry.target.classList.remove('section--unvisible');
+
+}
+
+let loadContent = new IntersectionObserver(callBack, {
+  root: null,
+  rootMargin:'0px',
+  threshold: 0.2,
+});
+
+
+allSections.forEach(function(section){
+  loadContent.observe(section);
+  section.classList.add('section--unvisible');
+
+})
