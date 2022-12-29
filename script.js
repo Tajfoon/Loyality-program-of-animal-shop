@@ -102,7 +102,7 @@ loginBtn.addEventListener("click", function (event) {
     sectionSec.classList.add("hidden");
     article.classList.add('hidden');
     main.classList.remove('absolute');
-    container.style.zIndex = "2";
+    main.style.zIndex = "2";
     
     footer.classList.remove("flex-center");
 
